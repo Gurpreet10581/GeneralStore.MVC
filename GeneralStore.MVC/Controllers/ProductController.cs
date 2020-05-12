@@ -14,10 +14,18 @@ namespace GeneralStore.MVC.Controllers
         // Add the application DB Context (link to the database)
         private ApplicationDbContext _db = new ApplicationDbContext();
 
-        // GET: Product
+        //// GET: Product-without editing below
+        //public ActionResult Index()
+        //{
+        //    // See below (modifying ApplicationDbContext class)
+        //    return View(_db.Products.ToList());
+        //}
+
+        // GET: Product-editing below
         public ActionResult Index()
         {
-            // See below (modifying ApplicationDbContext class)
+            List<Product> productList = _db.Products.ToList();
+            List<Product> orderedList = productList.OrderBy(prod => prod.Name).ToList();
             return View(_db.Products.ToList());
         }
 
