@@ -16,6 +16,8 @@ namespace GeneralStore.MVC.Controllers
         // GET: Customer
         public ActionResult Index()
         {
+            List<Customer> customerList = _db.Customers.ToList();
+            List<Customer> orderedList = customerList.OrderBy(cust => cust.FullName).ToList();
             return View(_db.Customers.ToList());
         }
 
@@ -98,9 +100,9 @@ namespace GeneralStore.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Entry(customer).State = EntityState.Modified;
+                _db.Entry(customer).State = EntityState.Modified;// changing the object state to modify-this line is updating 
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index");//it is going to the index of the controller you are in 
 
             }
             return View(customer);
