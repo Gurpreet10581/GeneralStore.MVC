@@ -30,5 +30,6 @@ namespace GeneralStore.MVC.Models
             return new ApplicationDbContext();
         }
         public DbSet<Product> Products { get; set; }// Added this so the Product properties can be excessed 
+        public DbSet<Customer> Customers { get; set; }
     }
 }

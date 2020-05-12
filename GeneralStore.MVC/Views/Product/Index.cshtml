@@ -26,26 +26,26 @@
 
         </th>
     </tr>
-    @foreach (var item in Model)//we are creating below logic for each Product from models so item=restaurant
+    @foreach (var item in Model)//we are creating below logic for each property of Product class from models
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.InventoryCount)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IsFood)
-    </td>
-    <td>
-        @Html.ActionLink("Change", "Edit", new { id = item.ProductId }) |
-        @Html.ActionLink("More Info", "Details", new { id = item.ProductId }) |
-        @Html.ActionLink("Remove", "Delete", new { id = item.ProductId }) |
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventoryCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFood)
+            </td>
+            <td>
+                @Html.ActionLink("Change", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("More Info", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Remove", "Delete", new { id = item.ProductId }) |
+            </td>
+        </tr>
     }
 </table>
